@@ -4,9 +4,14 @@
   <auxiliary>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-      <group/>
+      <group>
+        <file>file:/C:/Users/abdia_000/Desktop/versiones%20del%20juego/MonkeyGame0.1/core/src/libgdx/game/Fruits.java</file>
+        <file>file:/C:/Users/abdia_000/Desktop/versiones%20del%20juego/MonkeyGame0.1/core/src/libgdx/game/Monkey.java</file>
+        <file>file:/C:/Users/abdia_000/Desktop/versiones%20del%20juego/MonkeyGame0.1/core/src/libgdx/game/Enemy.java</file>
+        <file>file:/C:/Users/abdia_000/Desktop/versiones%20del%20juego/MonkeyGame0.1/core/src/libgdx/game/Enemy_2.java</file>
+        <file>file:/C:/Users/abdia_000/Desktop/versiones%20del%20juego/MonkeyGame0.1/core/src/libgdx/game/Vidas.java</file>
+      </group>
     </open-files>
-    <editor-bookmarks lastBookmarkId="0" xmlns="http://www.netbeans.org/ns/editor-bookmarks/2"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
       <group/>
     </open-files>

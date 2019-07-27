@@ -22,13 +22,13 @@ public class Monkey extends Actor
         CircleShape cuerpo_forma;
         
         public float elapsedTime;
-	public TextureRegion region;
-	public Rectangle boundary;
-	public int areadecomprobacionWH=32, areadecomprobacionXY=16;
+        public TextureRegion region;
+        public Rectangle boundary;
+        public int areadecomprobacionWH=32, areadecomprobacionXY=16;
         private Animation<TextureRegion> anim;
         
         public float velocityX;
-	public float velocityY;
+        public float velocityY;
         public float maxSpeed;
         
         public int cant_vidas;
@@ -46,10 +46,12 @@ public class Monkey extends Actor
                 elapsedTime = 0;
                 maxSpeed=300/60;///1.67f; //velocidad calculada en metros por segundo, aqui hay 200pixeles por segundo                
 	}
-        public void __init__(float x, float y)
+	
+	//La posiciones son pasadas en pixeles
+        public void __init__(float x, float y, int cant_vidas)
         {
             this.cant_frutas=0;
-            this.cant_vidas=3;
+            this.cant_vidas=cant_vidas;
             vivo=true;
             cuerpo.setTransform((x+ this.getOriginX()) /Constants.pixelametro,(y+ this.getOriginX()) /Constants.pixelametro,0);
         }

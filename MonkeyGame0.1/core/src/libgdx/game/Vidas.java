@@ -15,6 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 
+
 public class Vidas extends BaseActor{
     
         public World world;
@@ -55,7 +56,7 @@ public class Vidas extends BaseActor{
         //busca una posicion en la matriz que no este acupada para ocuparla(marcala con 1)
         while (!ocupado){
             num_posicion=MathUtils.random(0,posiciones_disponibles);
-            if (m[num_posicion][2]==0){
+            if (m[num_posicion][2]==0){ //escoge la casilla que está desocupado
                    cuerpo.setTransform((m[num_posicion][0]+ this.getOriginX()) /Constants.pixelametro,(m[num_posicion][1]+ this.getOriginX()) /Constants.pixelametro,  0);
                    m[num_posicion][2]=1;
                    ocupado=true;

@@ -29,8 +29,6 @@ import com.badlogic.gdx.physics.box2d.World;
 
 import java.util.ArrayList;
 
-
-
 public class MonkeyLevel extends BaseScreen
 {   
     //----MUSICA-------------------------
@@ -39,13 +37,14 @@ public class MonkeyLevel extends BaseScreen
     private final int tileSize = 64;
     private final int tileCountWidth =  13;//el de prueba  es de 30;
     private final int tileCountHeight = 11;//el de prueba es de 30;
-    private static int vidas_mapa=3; //máximo vidas que va a tener el mono en el mapa
+    private  int vidas_mapa; 
 
     //cantidades a escojer de las listas
-    private static int cant_enemigos_1_nivel=11;
-    private static int cant_vidas=1;   //va ha ver solo una vida en el mapa que va a reaparecer dado un tiempo
-    private static int cant_frutas=3;  //cantidad de frutas que van a aparecer en el mapa
-    private static int cant_objetos=19;  //cantidad de frutas que van a aparecer en el mapa
+    private  int cant_enemigos;
+    private  int cant_vidas;   
+    private  int cant_frutas;  
+    private  int cant_objetos;
+    
      //world game dimensions
     private float mapHeight;
     private float mapWidth;
@@ -59,7 +58,6 @@ public class MonkeyLevel extends BaseScreen
     private boolean win;
     //----LABELS--------------------------
     private float suma_dt_Label;
-    //private Label tiempolabel;
     private Label vidaslabel;
     private Label nivelabel;
     private Label frutaslabel;
@@ -79,70 +77,60 @@ public class MonkeyLevel extends BaseScreen
     public Fixture cuerpo_fixture_prueba;
     PolygonShape cuerpo_forma_prueba;
     
-    //---pruebas--
-    public float tiempo_cambio;
-    //las posiciones  aleatorias de las frutas
-    //posicion x, posicion y, si ocupado o no
-    public int m_frutas[][]={{192,0,0}, {128,639,0}, {768,640,0}, {768,64,0}};
-    
-    //las posiciones  aleatorias de las vidas
-    //posicion x, posicion y, si ocupado o no, y tiempo de reaparicion
-    public int m_vidas[][]={{143, 216,0, 5}, {783, 24,0, 5}};
-    
-    //las posiciones de los enemigos movimiento patrulla
-    //posicion x, y, velocidad, limite_izquierdo, limite_derecho, h_o_v
-    public int m_enemigos[][]={{64, 576, 300,64, 256, 1}, {128, 384, 200, 128, 320, 1}, {192, 192, 100,128, 320, 1},
-                               {448, 576, 200, 448, 576, 1}, {64, 192, 300, 192, 320, 0}, {384, 64, 200, 64, 256, 0}, {384, 0, 300, 384, 576, 1},
-                               {576, 257, 300, 257, 448, 0}, {640, 0, 200, 0, 192, 0}, {768, 192, 300, 192, 384,0},
-                               {68, 508, 250, 68, 450, 1}
-                              };
-    
+
     //las posiciones de los enemigos movimiento circular
     //posicion_x, posicion_y, velocidad, diametro
     public int m_enemigos_2[][]={{456, 494,3, 70}, {1152, 640, 2, 200}, {161, 1380, 3, 64}, {1439, 1761, 3, 64}};
-    
-    //float posicion_x, float posicion_y
-     public int m_objetos[][]={/*troncos*/{70, 644}, {133,0}, {326, 644}, {326, 580},
-                                          {581, 131}, {645, 644}, {645, 580}, {710, 580},
-                                          {519,73}, {581,73},
-                               /*piedras*/{196, 261}, {196, 69}, {260, 261}, {260, 132},
-                                          {260, 68}, {709, 133}, {709, 68}, {709, 4},
-                               /*arboles*/{79, 72}
-                              };
-    
-    MonkeyLevel(Game game, World w, Monkey mono, ArrayList<Enemy>lista_enemigos, ArrayList<Enemy_2>lista_enemigos_2, ArrayList<Fruits> lista_frutas, ArrayList<Vidas> lista_vidas, ArrayList<StaticObjects>lista_objetos)
-    {
         
-        super(game, w, mono, lista_enemigos, lista_enemigos_2, lista_frutas, lista_vidas, lista_objetos);
-        mono.__init__(0,0); //960 896
+    MonkeyLevel(MonkeyGame game)
+    { 
+        super(game);
+        
+        //ubicaci�n del archivo
+        game.set_json_data("C:\\Users\\abdia_000\\Desktop\\versiones del juego\\MonkeyGame0.1\\core\\assets\\nivel1\\nivel1.json");
+        json= game.get_json_data();
+        vidas_mapa=json.get_vidas_mapa();     //máximo vidas que va a tener el mono en el mapa, practicamente es un label
+        cant_enemigos=json.get_cant_enemigos();
+        cant_vidas=json.get_cant_vidas();     //va ha ver solo una vida en el mapa que va a reaparecer dado un tiempo
+        cant_frutas=json.get_cant_frutas();   //cantidad de frutas que van a aparecer en el mapa
+        cant_objetos=json.get_cant_objetos(); //cantidad de frutas que van a aparecer en el mapa
+       
+        mono.__init__(json.get_mono_xy()[0], json.get_mono_xy()[1], vidas_mapa);
         
         for (int i = 0; i < cant_frutas; i++) {
-           lista_frutas.get(i).__init__(m_frutas);
+            //las posiciones  aleatorias de las frutas
+            //posicion x, posicion y, si ocupado o no
+           lista_frutas.get(i).__init__(json.get_matrix_frutas());
         }
         
         for (int i = 0; i < cant_vidas; i++) {
-            //int m[][], int posiciones_disponibles, int tiempo
-            lista_vidas.get(i).__init__(m_vidas, cant_vidas, m_vidas[i][3]);
+            //posicion x, posicion y, si ocupado o no, y tiempo de reaparicion. cant_vidas de la "LISTA_VIDAS" (no del for, el del for indica los objetos de "Vidas" a tomar en cuenta)
+            //indica el numero de posiciones disponible que dispone una vida para trasladarze
+            lista_vidas.get(i).__init__(json.get_matrix_vidas(), cant_vidas, json.get_matrix_vidas()[i][3]);
         }
-        for (int i = 0; i < cant_enemigos_1_nivel; i++) {
+        for (int i = 0; i < cant_enemigos; i++) {
+            //las posiciones de los enemigos movimiento patrulla
             //posicion x, y, velocidad, limite_izquierdo, limite_derecho, h_o_v
-            lista_enemigos.get(i).__init__(m_enemigos[i][0], m_enemigos[i][1], m_enemigos[i][2], m_enemigos[i][3], m_enemigos[i][4], m_enemigos[i][5]);
+            lista_enemigos.get(i).__init__(json.get_matrix_enemigos()[i][0], json.get_matrix_enemigos()[i][1], json.get_matrix_enemigos()[i][2], json.get_matrix_enemigos()[i][3], json.get_matrix_enemigos()[i][4], json.get_matrix_enemigos()[i][5]);
         }
         
         for (int i = 0; i < cant_objetos; i++) {
-            //posicion x, y, velocidad, limite_izquierdo, limite_derecho, h_o_v
-            lista_objetos.get(i).__init__(m_objetos[i][0], m_objetos[i][1]);
+            //float posicion_x, float posicion_y
+            /*troncos{70, 644}, {133,0}, {326, 644}, {326, 580},
+                     {581, 131}, {645, 644}, {645, 580}, {710, 580},
+                     {519,73}, {581,73},
+              piedras{196, 261}, {196, 69}, {260, 261}, {260, 132},
+                     {260, 68}, {709, 133}, {709, 68}, {709, 4},
+              arboles{79, 72}*/
+            lista_objetos.get(i).__init__(json.get_matrix_objetos()[i][0], json.get_matrix_objetos()[i][1]);
         }
-        
-    }
+}
     
     public void create(){
-        
         //---pruebas
-        tiempo_cambio=5.00f;
         //mainStage.setDebugAll(true);
         //---MUSICA---------------------------------
-        music_nivel=(Gdx.audio.newMusic(Gdx.files.internal("music_nivel1.mp3")));
+        music_nivel=(Music)game.get_manager().get("nivel1/music_nivel1.mp3");
         music_nivel.setVolume(0.2f);
 
         //---MAPA-----------------------------------
@@ -193,7 +181,7 @@ public class MonkeyLevel extends BaseScreen
                 }
                 if(areCollided(contact, "vidas", "mono"))
                 {  
-                       if(mono.cant_vidas<3)
+                       if(mono.cant_vidas<vidas_mapa)
                        {
                         for (Vidas e : lista_vidas) 
                             {
@@ -231,13 +219,13 @@ public class MonkeyLevel extends BaseScreen
     }
 
     public void show(){
+
         //---ACTORES-----------------------------------
         grama=new BaseActor();       
-        grama.setTexture(new Texture(Gdx.files.internal("nivel_1.png")));
+        grama.setTexture((Texture)game.get_manager().get("nivel1/nivel_1.png"));
         grama.setPosition(0, 0);
         grama.setSize(mapWidth, mapHeight);
         mainStage.addActor(grama);
-        
         
         music_nivel.play();
         music_nivel.setLooping(true);
@@ -258,7 +246,7 @@ public class MonkeyLevel extends BaseScreen
         mainStage.addActor(mono);
 
         winTex = new BaseActor();
-        winTex.setTexture(new Texture(Gdx.files.internal("you-win.png")));
+        winTex.setTexture((Texture)game.get_manager().get("escenario/you-win.png"));
         winTex.setPosition(windowHeight/2,windowHeight/2);        
         winTex.setVisible(false);
         winTex.addAction(fadeInColorCycleForever);
@@ -266,7 +254,7 @@ public class MonkeyLevel extends BaseScreen
         win=false;
         
         gameoverTex = new BaseActor();
-        gameoverTex.setTexture(new Texture(Gdx.files.internal("gameover.png")));
+        gameoverTex.setTexture((Texture)game.get_manager().get("escenario/gameover.png"));
         gameoverTex.setPosition(windowHeight/2,windowHeight/2);        
         gameoverTex.setVisible(false);
         gameoverTex.addAction(fadeInColorCycleForever);
@@ -313,6 +301,7 @@ public class MonkeyLevel extends BaseScreen
     public void update(float dt) {
        mono.velocityX=0.00f;
        mono.velocityY=0.00f;
+
        if(mono.vivo && !win) {
                 
                 world.step(dt, 6, 2);
@@ -327,7 +316,6 @@ public class MonkeyLevel extends BaseScreen
                 for (Vidas e : lista_vidas){
                     if(e.colision && !e.marcado)
                     {   
-                        
                            mono.cant_vidas++;
                             e.marcado=true;
                             e.inactivo();
@@ -337,7 +325,7 @@ public class MonkeyLevel extends BaseScreen
                 //aqui mueve al mono si chocó con un enimigo
                 if(mono.golpeado)
                 {   mono.tiempo_resurreccion+=dt;
-                    mono.cuerpo.setTransform(0+0.5f, 0+0.5f, mapHeight);
+                    mono.cuerpo.setTransform(0+0.5f, 0+0.5f, 0);
 
                     if(mono.tiempo_resurreccion >tiempo_resurreccion)
                     {
@@ -484,10 +472,10 @@ public class MonkeyLevel extends BaseScreen
        
        if(Gdx.input.isKeyPressed(Keys.S))
           {   
-              game.setScreen((new MonkeyLevel(game, world, mono, lista_enemigos, lista_enemigos_2, lista_frutas, lista_vidas, lista_objetos)));
+              game.setScreen((new MonkeyLevel(game)));
           }
       if(Gdx.input.isKeyPressed(Keys.M))
-           game.setScreen((new MonkeyMenu(game, world, mono, lista_enemigos, lista_enemigos_2, lista_frutas, lista_vidas, lista_objetos)));
+           game.setScreen((new MonkeyMenu(game)));
    }
    public void mono_gano()
    {    
@@ -495,7 +483,7 @@ public class MonkeyLevel extends BaseScreen
        mono_siguiente_nivel.setVisible(true);
        if(Gdx.input.isKeyPressed(Keys.N))
           {   
-              game.setScreen((new MonkeyMenu(game, world, mono, lista_enemigos, lista_enemigos_2, lista_frutas, lista_vidas, lista_objetos)));
+              game.setScreen((new MonkeyMenu(game)));
           }
 
    }

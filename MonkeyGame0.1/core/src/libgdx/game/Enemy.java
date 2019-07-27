@@ -44,6 +44,11 @@ public class Enemy extends Actor
         public float maxSpeed;
         public boolean horizontal_vertical;
         
+        private Texture hombre_der;
+        private Texture hombre_izq;
+        private Texture hombre_arri;
+        private Texture hombre_abaj;
+        
     public void __init__(float posicion_x, float posicion_y, int velocidad, float limite_izquierdo, float limite_derecho, int h_o_v)
     {
             cant_vidas=3;
@@ -155,7 +160,8 @@ public class Enemy extends Actor
     public void movimiento_horizontal()
     {
         if(muevete_derecha){
-            setTexture(Constants.hombre_der); 
+            //setTexture(Constants.hombre_der); 
+        	setTexture(hombre_der);
             if((Constants.pixelametro*cuerpo.getPosition().x - this.getOriginX()) + maxSpeed   < limite_derecho )
                      {
                            velocityX+=maxSpeed;
@@ -170,7 +176,7 @@ public class Enemy extends Actor
                      }
              }
        else{
-            setTexture(Constants.hombre_izq);  
+            setTexture(hombre_izq);  
 
                      if((Constants.pixelametro*cuerpo.getPosition().x - this.getOriginX()) - maxSpeed > limite_izquierdo) 
                      {     velocityX-=maxSpeed;
@@ -189,7 +195,7 @@ public class Enemy extends Actor
     public void movimiento_vertical()
     {
         if(muevete_derecha){
-           setTexture(Constants.hombre_arri); 
+           setTexture(hombre_arri); 
                          if((Constants.pixelametro*cuerpo.getPosition().y - this.getOriginY()) + maxSpeed   < limite_derecho )
                          {     velocityY+=maxSpeed;
                                setVelocity(velocityX, velocityY);
@@ -203,7 +209,7 @@ public class Enemy extends Actor
                          }
                  }
         else{
-            setTexture(Constants.hombre_abaj); 
+            setTexture(hombre_abaj); 
                          if((Constants.pixelametro*cuerpo.getPosition().y - this.getOriginY()) - maxSpeed > limite_izquierdo){
                               velocityY-=maxSpeed;
                                setVelocity(velocityX, velocityY);
@@ -232,6 +238,22 @@ public class Enemy extends Actor
         
         if(frect.overlaps(monorect))
             colision=true;
-    }  
+    } 
+    public void set_texture_hombre_der(Texture imagen)
+    {
+    	hombre_der=imagen;
+    }
+    public void set_texture_hombre_izq(Texture imagen)
+    {
+    	hombre_izq=imagen;
+    }
+    public void set_texture_hombre_arr(Texture imagen)
+    {
+    	hombre_arri=imagen;
+    }
+    public void set_texture_hombre_aba(Texture imagen)
+    {
+    	hombre_abaj=imagen;
+    }
 }
 

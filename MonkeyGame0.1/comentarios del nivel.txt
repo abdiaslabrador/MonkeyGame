@@ -1,14 +1,4 @@
-06/03/19
--contiene el nivel 1 realizado sin json, no tiene el nivel 2
--se añadió objetos estáticos
--se añadió de los enemigos
--se cambió la imagen de fondo
-
--correcion de transforme de la clase enemy
--correcion de transforme de la clase enemy_2
-
--modificación en el hide y en dispose de la clase monkey_menu
--se hizo una limpieza minima del código del monkeylevel
-
-07/03/19
--eliminación de algunas imágenes inecesarias
+27/7/19
+- Se ubico las imágenes en cada carpeta
+- Se añadió json
+- Se encontró el error del cambio de pantalla con la clase Game en vez de usar MonkeyGame

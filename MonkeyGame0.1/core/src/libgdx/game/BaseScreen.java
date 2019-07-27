@@ -22,12 +22,13 @@ public abstract class BaseScreen implements Screen, InputProcessor {
     protected OrthographicCamera cameragame;
     protected Box2DDebugRenderer b2dr;
     protected Viewport gameport;
-    protected Game game;
+    protected MonkeyGame game;
     protected Stage mainStage;
     protected Stage uiStage;
     public final int windowHeight = 480;
     public final int windowWidth = 640;
     private boolean paused;
+    
     public World world;
     public Monkey mono;
     public ArrayList<Enemy> lista_enemigos;
@@ -35,28 +36,32 @@ public abstract class BaseScreen implements Screen, InputProcessor {
     public ArrayList<Fruits> lista_frutas;
     public ArrayList<Vidas> lista_vidas;
     public ArrayList<StaticObjects> lista_objetos;
+    public Json_data json;
     
 //input procesor se encarga de manejar diferentes entras, se puede manejar entradas de diferentes maneras
 //lo puede manejas las que heredan del basescreen o los ecenarios, es dependiendo del caso
-    BaseScreen(Game game, World world, Monkey mono, ArrayList<Enemy>lista_enemigos, ArrayList<Enemy_2>lista_enemigos_2, ArrayList<Fruits> lista_frutas, ArrayList<Vidas> lista_vidas, ArrayList<StaticObjects>lista_objetos) {
+    BaseScreen(MonkeyGame game) {
         cameragame= new OrthographicCamera(/*1920/Constants.pixelametro, 1920/Constants.pixelametro*/); //este viewport es colocado con 30 para que en Boxd2 se vea más cerca
         gameport = new FitViewport(30, 30, cameragame); //esto controla 
         b2dr= new Box2DDebugRenderer();
         
         paused = false;
         this.game = game;
-        this.world= world;//new World(new Vector2(0,0), true);
+        this.world= game.world;//new World(new Vector2(0,0), true);
         mainStage = new Stage(new FitViewport(windowWidth, windowHeight));
         uiStage = new Stage(new FitViewport(windowWidth, windowHeight));
         InputMultiplexer im = new InputMultiplexer(this, uiStage, mainStage);
         Gdx.input.setInputProcessor(im);
         
-        this.mono=mono;
-        this.lista_enemigos=lista_enemigos;
-        this.lista_enemigos_2=lista_enemigos_2;
-        this.lista_frutas=lista_frutas;
-        this.lista_vidas=lista_vidas;
-        this.lista_objetos=lista_objetos;
+        this.mono=game.mono;
+        this.lista_enemigos=game.lista_enemigos;
+        this.lista_enemigos_2=game.lista_enemigos_2;
+        this.lista_frutas=game.lista_frutas;
+        this.lista_vidas=game.lista_vidas;
+        this.lista_objetos=game.lista_objetos;
+        
+        
+        
         create();
     }
 

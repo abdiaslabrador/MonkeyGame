@@ -32,10 +32,9 @@ public class MonkeyMenu extends BaseScreen{
     Action color_instruc;
     Music music_menu;
     
-    MonkeyMenu(Game game, World w, Monkey mono, ArrayList<Enemy>lista_enemigos, ArrayList<Enemy_2>lista_enemigos_2, ArrayList<Fruits> lista_frutas, ArrayList<Vidas> lista_vidas, ArrayList<StaticObjects>lista_objetos)
+    MonkeyMenu(MonkeyGame game)
     {   
-        super(game, w, mono, lista_enemigos, lista_enemigos_2, lista_frutas, lista_vidas, lista_objetos);
-        
+        super(game);
     }
     
     @Override
@@ -44,7 +43,7 @@ public class MonkeyMenu extends BaseScreen{
        inic_acciones();
         batch= new SpriteBatch();
         fondo= new BaseActor();
-        fondo.setTexture(new Texture(Gdx.files.internal("menu_inicio.png")));
+        fondo.setTexture((Texture)game.get_manager().get("menu_inicio/menu_inicio.png"));
         fondo.setPosition(0, 0);
         fondo.setSize(fondo.getWidth(), fondo.getHeight());
         mainStage.addActor(fondo);
@@ -56,15 +55,13 @@ public class MonkeyMenu extends BaseScreen{
         instrucciones.setPosition(25, 20);
         instrucciones.setFontScale(2);
         instrucciones.addAction(color_instruc);
-        uiStage.addActor(instrucciones);            
-        music_menu=  (Gdx.audio.newMusic(Gdx.files.internal("music_menu.mp3")));
+        uiStage.addActor(instrucciones);           
+        music_menu=  (Music)game.get_manager().get("menu_inicio/music_menu.mp3");
         music_menu.setVolume(0.2f);
         music_menu.play();
         music_menu.setLooping(true);
-        
     }
     public void show() {
-    
     }
     public void inic_acciones()
     {
@@ -85,7 +82,7 @@ public class MonkeyMenu extends BaseScreen{
    public boolean keyDown(int keycode) {
        if(keycode == Keys.S)
        {    
-           game.setScreen((new MonkeyLevel(game, world, mono, lista_enemigos, lista_enemigos_2, lista_frutas, lista_vidas, lista_objetos)));
+           game.setScreen((new MonkeyLevel(game)));
        }
         return false;
     }

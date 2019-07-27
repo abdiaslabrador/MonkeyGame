@@ -19,11 +19,5 @@ public class Constants {
                                                 //a la hora de cualcular metros se divide los pixeles entre metros
     public static final float velocidad= 100; //para unavelocidad general si se desea
     public static final float medio_objeto=0.5f;
-    public static final Texture hombre_der = new Texture(Gdx.files.internal("hombre_derecha.png"));
-    public static final Texture hombre_izq = new Texture(Gdx.files.internal("hombre_izquierda.png"));
-    public static final Texture hombre_arri = new Texture(Gdx.files.internal("hombre_arriba.png"));
-    public static final Texture hombre_abaj = new Texture(Gdx.files.internal("hombre_abajo.png"));
-
-    
     
 }
