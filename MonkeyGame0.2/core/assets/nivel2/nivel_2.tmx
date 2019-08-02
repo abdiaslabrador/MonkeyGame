@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="13" height="11" tilewidth="64" tileheight="64" infinite="0" nextlayerid="18" nextobjectid="59">
+ <tileset firstgid="1" source="bosque.tsx"/>
+ <layer id="1" name="grama" width="13" height="11">
+  <data encoding="base64" compression="zlib">
+   eJxjZGBgYBzFo5gMDACjHACQ
+  </data>
+ </layer>
+ <layer id="15" name="oyas" width="13" height="11">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAchJKhJ5AK9o4C3CCIDnYAAFivAPk=
+  </data>
+ </layer>
+ <layer id="5" name="flores" width="13" height="11">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAvYIJidCBKZ3cMJGAcaAeQAHDFC8gPADBAADE=
+  </data>
+ </layer>
+ <layer id="12" name="tablas de vidas" width="13" height="11">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAO2EMlc2Agksrm0QuEDbQDKADhJKoHAGMmAcM=
+  </data>
+ </layer>
+ <layer id="10" name="troncos" width="13" height="11">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAOmBPgj4KRBwDjZABv
+  </data>
+ </layer>
+ <layer id="2" name="piedras_frutas" width="13" height="11">
+  <data encoding="base64" compression="zlib">
+   eJxjYMAOZHGIj4LhCUiNb5B6AEaoAFg=
+  </data>
+ </layer>
+ <layer id="11" name="piedras" width="13" height="11">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFIx3I4GATAgANLAA5
+  </data>
+ </layer>
+ <layer id="13" name="arboles" width="13" height="11">
+  <data encoding="base64" compression="zlib">
+   eJxjYMAPtKEYBBqBuAlJLhGIk3Coh+GJQDwJSb4QiIsI2Ekp0CashObAmM76cAFscUQIEBtHADoCBwY=
+  </data>
+ </layer>
+ <layer id="16" name="arbol2" width="13" height="11">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAvSATiJBL1FAJxEQ3cMgooAwDHNgGn
+  </data>
+ </layer>
+ <layer id="17" name="Capa de patrones 11" width="13" height="11">
+  <data encoding="base64" compression="zlib">
+   eJxjYBj8IBGIk0jUUwjERTRwyyhAAABxfgGn
+  </data>
+ </layer>
+ <layer id="4" name="enemigos" width="13" height="11">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAd2FJJjy0aHig95ABqhQEudbZobELuJ8dvlOoBAMqtB2Q=
+  </data>
+ </layer>
+ <objectgroup id="8" name="arboles">
+  <object id="26" x="142.667" y="68" width="96" height="116"/>
+  <object id="53" x="142" y="198" width="96" height="116"/>
+  <object id="55" x="68.5" y="267" width="51" height="40"/>
+  <object id="56" x="209" y="581" width="96" height="116"/>
+  <object id="57" x="518.5" y="398" width="51" height="40"/>
+  <object id="58" x="582.5" y="458" width="51" height="40"/>
+ </objectgroup>
+ <objectgroup id="14" name="circulo">
+  <object id="46" x="329" y="475" width="238" height="214">
+   <ellipse/>
+  </object>
+  <object id="47" x="592" y="227" width="216" height="212">
+   <ellipse/>
+  </object>
+  <object id="48" x="75" y="303" width="216" height="204">
+   <ellipse/>
+  </object>
+ </objectgroup>
+ <objectgroup id="6" name="vidas" visible="0">
+  <object id="2" x="76.917" y="647.083" width="32" height="32"/>
+  <object id="4" x="779.667" y="135" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup id="7" name="troncos" visible="0">
+  <object id="6" x="70" y="75" width="51" height="40"/>
+  <object id="7" x="454" y="75" width="51" height="40"/>
+  <object id="8" x="520" y="75" width="51" height="40"/>
+  <object id="9" x="645" y="18" width="51" height="40"/>
+  <object id="10" x="646" y="75" width="51" height="40"/>
+  <object id="11" x="714" y="12" width="51" height="40"/>
+  <object id="49" x="582.5" y="75" width="51" height="40"/>
+  <object id="50" x="582.5" y="12" width="51" height="40"/>
+  <object id="51" x="516.5" y="12" width="51" height="40"/>
+  <object id="52" x="776.5" y="12" width="51" height="40"/>
+ </objectgroup>
+ <objectgroup id="9" name="piedras" visible="0">
+  <object id="13" x="263" y="130" width="51" height="57"/>
+  <object id="14" x="325" y="67" width="51" height="57"/>
+  <object id="15" x="69" y="579" width="51" height="57"/>
+  <object id="16" x="774" y="579" width="51" height="57"/>
+  <object id="17" x="130" y="640" width="51" height="57"/>
+  <object id="18" x="263" y="67" width="51" height="57"/>
+  <object id="19" x="712" y="58" width="51" height="57"/>
+  <object id="20" x="773" y="58" width="51" height="57"/>
+ </objectgroup>
+</map>

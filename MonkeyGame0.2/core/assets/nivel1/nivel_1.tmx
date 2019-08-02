@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="13" height="11" tilewidth="64" tileheight="64" infinite="0" nextlayerid="15" nextobjectid="52">
+ <tileset firstgid="1" source="bosque.tsx"/>
+ <tileset firstgid="193" source="../nivel2/bosque.tsx"/>
+ <layer id="1" name="grama" width="13" height="11">
+  <data encoding="base64" compression="zlib">
+   eJxjZGBgYBzFo5gMDACjHACQ
+  </data>
+ </layer>
+ <layer id="14" name="camino de mariposas" width="13" height="11" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYKA90GYkTw86JlUPMWqR3YdNPy6z8InhsptcN+GzB12eFPcS6xZcAAAWQwYF
+  </data>
+ </layer>
+ <layer id="5" name="flores" width="13" height="11">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAvYIJidCBKZ3cMJGAcaAeQAHDFC8gPADBAADE=
+  </data>
+ </layer>
+ <layer id="12" name="tablas de vidas" width="13" height="11">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgF9AZpA+0ALCCMRPUgPwAAZPwBIw==
+  </data>
+ </layer>
+ <layer id="10" name="troncos" width="13" height="11">
+  <data encoding="base64" compression="zlib">
+   eJxjYGBgMGdABeh8XGLE6CGkbxRQDkgNYwsgtqSCWQDgNgIq
+  </data>
+ </layer>
+ <layer id="2" name="piedras_frutas" width="13" height="11">
+  <data encoding="base64" compression="zlib">
+   eJxjYIAAWQbiALHqRsHQAehxSmwcAwCIXAB1
+  </data>
+ </layer>
+ <layer id="11" name="piedras" width="13" height="11">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFlAIZKKaXXaTIEXIbOe6G6QEAbrwA4Q==
+  </data>
+ </layer>
+ <layer id="13" name="arboles" width="13" height="11">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAdvCZDD7HAkZGBwYmRsL2KQDVKUHWBQDoIhx5kYAhUY0SEOlwA2U5CAOZWSu0EgUQgTiJRTyEQF1FmLUEAAEKMBuY=
+  </data>
+ </layer>
+ <layer id="4" name="enemigos" width="13" height="11" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAP2CLhvzjE0cFfPJhcgM0edHegq7HFwsZlDql6sKnDpocY9+FzEz4/UVMPPjMAdEoPiQ==
+  </data>
+ </layer>
+ <objectgroup id="8" name="arboles">
+  <object id="26" x="78.6667" y="516" width="96" height="116"/>
+  <object id="46" x="654" y="326" width="96" height="116"/>
+  <object id="47" x="464" y="198" width="96" height="116"/>
+  <object id="48" x="656.333" y="133.667" width="96" height="116"/>
+  <object id="49" x="5.83333" y="77.6667" width="51" height="40"/>
+  <object id="50" x="261.833" y="205.333" width="51" height="40"/>
+  <object id="51" x="517.167" y="395.333" width="51" height="40"/>
+ </objectgroup>
+ <objectgroup id="6" name="vidas" visible="0">
+  <object id="2" x="142.917" y="456.083" width="32" height="32"/>
+  <object id="4" x="782.667" y="648" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup id="7" name="troncos" visible="0">
+  <object id="5" x="133" y="660" width="51" height="40"/>
+  <object id="6" x="70" y="20" width="51" height="40"/>
+  <object id="7" x="326" y="21" width="51" height="40"/>
+  <object id="8" x="326" y="84" width="51" height="40"/>
+  <object id="9" x="645" y="21" width="51" height="40"/>
+  <object id="10" x="645" y="84" width="51" height="40"/>
+  <object id="11" x="710" y="84" width="51" height="40"/>
+  <object id="12" x="581" y="533" width="51" height="40"/>
+  <object id="21" x="581" y="591" width="51" height="40"/>
+  <object id="22" x="518.5" y="591" width="51" height="40"/>
+  <object id="24" x="597.333" y="606.667"/>
+ </objectgroup>
+ <objectgroup id="9" name="piedras" visible="0">
+  <object id="13" x="196" y="386" width="51" height="57"/>
+  <object id="14" x="260" y="386" width="51" height="57"/>
+  <object id="15" x="260" y="515.5" width="51" height="57"/>
+  <object id="16" x="260" y="578.833" width="51" height="57"/>
+  <object id="17" x="196" y="578" width="51" height="57"/>
+  <object id="18" x="709" y="643.167" width="51" height="57"/>
+  <object id="19" x="709" y="579.167" width="51" height="57"/>
+  <object id="20" x="709" y="513.5" width="51" height="57"/>
+ </objectgroup>
+</map>

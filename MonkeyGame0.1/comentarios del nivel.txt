@@ -1,4 +1,0 @@
-27/7/19
-- Se ubico las imágenes en cada carpeta
-- Se añadió json
-- Se encontró el error del cambio de pantalla con la clase Game en vez de usar MonkeyGame
