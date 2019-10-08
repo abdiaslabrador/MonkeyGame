@@ -1,0 +1,95 @@
+{
+	"vidas_mapa":3,
+
+	"mono":[ 		
+				{"x": 384, "y":256},
+			],
+
+	"cant_frutas":2, 
+	"m_frutas":[
+				{"x": 0, "y": 0, "ocupado": 0},
+				{"x": 384, "y": 640, "ocupado": 0},
+				{"x": 768, "y": 0, "ocupado": 0},
+				{"x": 0, "y": 0, "ocupado": 1},
+			],
+
+	"cant_vidas":1,
+	"m_vidas":[
+				{"x": 76, "y": 25, "ocupado": 0, "reaparicion": 5},
+				{"x": 779, "y": 537, "ocupado": 0, "reaparicion": 5},
+				{"x": 0, "y": 0, "ocupado": 1, "reaparicion": 5},
+				{"x": 0, "y": 0, "ocupado": 1, "reaparicion": 5},
+				{"x": 0, "y": 0, "ocupado": 1, "reaparicion": 5},
+				{"x": 0, "y": 0, "ocupado": 1, "reaparicion": 5}
+			 ],
+
+	"cant_enemigos":11, 
+	"m_enemigos":
+				 [
+				 	{"x": 0, "y": 639, "velocidad": 300, "limite_izquierdo": 384, "limite_derecho": 640, "h_o_v": 0},
+
+				 	{"x": 321, "y": 512, "velocidad": 100, "limite_izquierdo": 320, "limite_derecho": 512, "h_o_v": 1}, 
+
+				 	{"x": 511, "y": 448, "velocidad": 100,"limite_izquierdo": 320, "limite_derecho": 512, "h_o_v": 1},
+
+                    {"x": 321, "y": 384, "velocidad": 100, "limite_izquierdo": 320, "limite_derecho": 512, "h_o_v": 1},
+
+                    {"x": 0, "y": 256, "velocidad": 100, "limite_izquierdo": 128, "limite_derecho": 256, "h_o_v": 0}, 
+
+                    {"x": 65, "y": 128, "velocidad": 150, "limite_izquierdo":  64, "limite_derecho": 192, "h_o_v": 1}, 
+
+                    {"x": 640, "y": 0, "velocidad": 200, "limite_izquierdo": 0, "limite_derecho": 192, "h_o_v":0},
+
+                    {"x": 704, "y": 192, "velocidad": 200, "limite_izquierdo": 0, "limite_derecho": 192, "h_o_v": 0}, 
+
+                    {"x": -200, "y": -200, "velocidad": 0, "limite_izquierdo": 0, "limite_derecho": 0, "h_o_v": 0}, 
+
+                    {"x": -200, "y": -200, "velocidad": 0, "limite_izquierdo": 0, "limite_derecho": 0, "h_o_v": 0},
+
+                    {"x": -200, "y": -200, "velocidad": 0, "limite_izquierdo": 0, "limite_derecho": 0, "h_o_v": 0}
+                              
+				 ],
+
+	"cant_enemigos2":4, 
+	"m_enemigos2":
+				 [
+				 	{"x": 700, "y": 371, "velocidad": 15, "diametro": 76},
+
+				 	{"x": 448, "y": 122, "velocidad": 10, "diametro": 87},
+
+					{"x": 183, "y": 299, "velocidad": 6, "diametro": 76},
+    				
+    				{"x": -200, "y": -200, "velocidad": 0, "diametro": 0}
+				 ],
+
+	"cant_objetos":25, 
+	"m_objetos":
+				[
+					{"x": 70, "y": 589}, 
+					{"x": 454, "y": 589}, 
+					{"x": 520, "y": 589}, 
+					{"x": 582, "y": 589},
+                    {"x": 646, "y": 589},
+                    {"x": 516, "y": 651},
+                    {"x": 582, "y": 651},
+                    {"x": 645, "y": 646},
+                    {"x": 714, "y": 651}, 
+                    {"x": 776, "y": 651},
+                    {"x": 263, "y": 579},
+                    {"x": 325, "y": 579},
+                    {"x": 712, "y": 589},
+                    {"x": 773, "y": 589},
+                    {"x": 69, "y": 69}, 
+                    {"x": 774, "y": 69},
+                    {"x": 130, "y": 15},
+                    {"x": 263, "y": 516},
+                    {"x": 142,  "y": 520},
+                    {"x": 142,  "y": 391},
+                    {"x": 209,  "y": 7},
+                    {"x": -200,  "y": -200},
+                    {"x": 68,  "y": 397},
+                    {"x": 519,  "y": 266},
+                    {"x": 583,  "y": 206}
+				]	
+					
+}

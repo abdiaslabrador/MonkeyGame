@@ -75,7 +75,8 @@ public class MonkeyLevel2 extends BaseScreen {
 
 		// ubicación del archivo
 		// game.set_json_data("C:\\Users\\abdia_000\\Desktop\\versiones del juego\\MonkeyGame0.2\\core\\assets\\nivel2\\nivel2.json");
-		game.set_json_data("../core/assets/nivel2/nivel2.json");
+		//el que estaba ---> game.set_json_data("../core/assets/nivel2/nivel2.json");
+		game.set_json_data("nivel2.json");
 		json = game.get_json_data();
 		vidas_mapa = json.get_vidas_mapa(); // mÃ¡ximo vidas que va a tener el
 											// mono en el mapa, practicamente es

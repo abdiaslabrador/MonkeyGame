@@ -85,7 +85,8 @@ public class MonkeyLevel extends BaseScreen
         
         //ubicaciÛn del archivo
         // game.set_json_data("C:\\Users\\abdia_000\\Desktop\\versiones del juego\\MonkeyGame0.2\\core\\assets\\nivel1\\nivel1.json");
-        game.set_json_data("../core/assets/nivel1/nivel1.json");
+	//el que estaba ---> game.set_json_data("../core/assets/nivel1/nivel1.json");
+        game.set_json_data("nivel1.json");
         //game.set_json_data("nivel1.json");
         json= game.get_json_data();
         vidas_mapa=json.get_vidas_mapa();     //m√°ximo vidas que va a tener el mono en el mapa, practicamente es un label
