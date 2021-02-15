@@ -1,0 +1,1 @@
+Entrar a la carpeta \MonkeyGame0.2 y ejecutar "MonkeyGame0.2.jar"
