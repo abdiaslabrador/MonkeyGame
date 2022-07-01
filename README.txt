@@ -1,2 +1,2 @@
-Entrar a la carpeta \MonkeyGame0.2 y ejecutar "MonkeyGame0.2.jar"
-El juego lo hice con una versión de java 8, así que necesitaras esta o una mayor
+Go to \MonkeyGame0.2 and run "MonkeyGame0.2.jar"
+I made the game with a version of java 8, so you will need this or higher
